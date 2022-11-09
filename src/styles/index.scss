@@ -1,0 +1,19 @@
+@import './variables';
+@import './libs/functions';
+@import './libs/reset';
+@import './libs/mixins';
+
+body {
+	background: var(--bg-primary);
+	font-family: var(--font-paragraph);
+	font-size: var(--fz);
+	color: var(--fc-paragraph);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+[class*='_container'] {
+	max-width: rem(1440);
+	padding: 0 rem(10);
+	margin: 0 auto;
+}
