@@ -4,7 +4,7 @@ const AppContext = createContext();
 
 function AppProvider({ children }) {
 	const [user, setUser] = useState({});
-	const [authorized, setAuthorized] = useState(false);
+	const [authorized, setAuthorized] = useState(true);
 
 	const values = {
 		user, setUser,
