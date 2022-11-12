@@ -48,6 +48,13 @@
 	gap: rem(30) 0;
 }
 
+.fieldset {
+	display: grid;
+	padding: 0;
+	gap: rem(15);
+	border: 0;
+}
+
 .button {
 	padding: rem(10) rem(15);
 	border: 0;

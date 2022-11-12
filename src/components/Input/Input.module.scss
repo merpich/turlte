@@ -1,0 +1,24 @@
+@import '../../styles/libs/functions';
+@import '../../styles/libs/mixins';
+
+.label {
+	display: grid;
+	gap: rem(3);
+}
+
+.caption {
+	font-size: rem(18);
+	font-weight: 500;
+}
+
+.input {
+	padding: rem(10) rem(15);
+	border: 0;
+	border-radius: rem(10);
+	font-family: inherit;
+	font-size: rem(18);
+	color: var(--fc-button);
+	&:focus {
+		outline: rem(2) solid var(--accent);
+	}
+}
