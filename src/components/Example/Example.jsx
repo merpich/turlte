@@ -1,6 +1,6 @@
-import styles from './Code.module.scss';
+import styles from './Example.module.scss';
 
-export function Code({ title, action, imageUrl, alt }) {
+export function Example({ title, action, imageUrl, alt }) {
 	return (
 		<div className={styles.code}>
 			<div className={styles.text}>

@@ -1,5 +1,5 @@
 import { Intro } from '../components/Intro/Intro';
-import { Code } from '../components/Code/Code';
+import { Example } from '../components/Example/Example';
 import styles from '../styles/modules/Home.module.scss';
 
 export function Home() {
@@ -15,7 +15,7 @@ export function Home() {
 				<Intro />
 				<div className={styles.examples}>
 					{editors.map((item, key) => (
-						<Code
+						<Example
 							key={key}
 							{...item}
 						/>
