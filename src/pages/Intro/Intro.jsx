@@ -62,19 +62,17 @@ export const Intro = () => {
 		<div className={styles.intro}>
 			<div className={styles.container}>
 				<div className={styles.welcome}>
-					<nav className={styles.nav}>
-						<ul className={styles.list}>
-							<li className={styles.item}>
-								<img src="./images/icons/turtle.svg" alt="Логотип Turtle" />
-							</li>
-							<li className={styles.item}>
-								<Link className={styles.link} to="/login">Вход</Link>
-							</li>
-							<li className={styles.item}>
-								<Link className={styles.link} to="/login">Регистрация</Link>
-							</li>
-						</ul>
-					</nav>
+					<ul className={styles.nav}>
+						<li className={styles.nav_item}>
+							<img width={50} height={50} src="./images/icons/turtle.svg" alt="Логотип Turtle" />
+						</li>
+						<li className={styles.nav_item}>
+							<Link className={styles.link} to="/login">Вход</Link>
+						</li>
+						<li className={styles.nav_item}>
+							<Link className={styles.link} to="/login">Регистрация</Link>
+						</li>
+					</ul>
 					<div className={styles.text}>
 						<animated.h1 className={styles.title} style={animateTitle}>
 							Место, где вы можете создавать свой front-end

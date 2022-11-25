@@ -17,22 +17,26 @@
 .welcome {
 	display: grid;
 	justify-content: start;
+	@include media('max', 'width', 1259.98) {
+		gap: rem(50);
+	}
 }
 
-.nav {}
-
-.list {
+.nav {
+	align-self: flex-start;
 	display: flex;
 	align-items: center;
 	gap: rem(20);
 }
 
-.item {
-
-}
-
 .link {
 	color: inherit;
+	font-size: rem(18);
+	transition: color 0.2s ease-in-out 0s;
+	padding: rem(10);
+	&:hover {
+		color: var(--accent);
+	}
 }
 
 .text {
