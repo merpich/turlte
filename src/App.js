@@ -1,28 +1,28 @@
 import { Route, Routes } from "react-router-dom";
-import { Editor } from "./pages/Editor";
-import { Home } from "./pages/Home";
-import { Login } from "./pages/Login";
-import { NotFound } from "./pages/NotFound";
+// import { Editor } from "./pages/Editor";
+import { Intro } from "./pages/Intro/Intro";
+// import { Login } from "./pages/Login";
+// import { NotFound } from "./pages/NotFound";
 
 export function App() {
 	return (
 		<Routes>
-			<Route
+			{/* <Route
 				path="*"
 				element={ <NotFound /> }
-			/>
+			/> */}
 			<Route
 				path="/"
-				element={ <Home /> }
+				element={ <Intro /> }
 			/>
-			<Route
+			{/* <Route
 				path="/editor"
 				element={ <Editor />}
 			/>
 			<Route
 				path="/login"
 				element={ <Login /> }
-			/>
+			/> */}
 		</Routes>
 	);
 }
