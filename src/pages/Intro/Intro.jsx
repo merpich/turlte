@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { useSpring, useTrail, animated, easings } from 'react-spring';
+import { useSpring, useTrail, animated, easings, useSpringRef, config } from 'react-spring';
 import { Example } from '../../components/Example/Example';
+import { NavButton } from "../../components/NavButton/NavButton";
 import styles from './Intro.module.scss';
 
 export const Intro = () => {
@@ -42,6 +43,20 @@ export const Intro = () => {
 		delay: 600
 	});
 
+	const animateButton = useSpring({
+		from: {
+			opacity: 0
+		},
+		to: {
+			opacity: 1
+		},
+		config: {
+			duration: 800,
+			easing: easings.easeInOutQuad
+		},
+		delay: 2000
+	});
+
 	const trail = useTrail(examples.length, {
 		from: {
 			opacity: 0,
@@ -61,7 +76,7 @@ export const Intro = () => {
 	return (
 		<div className={styles.intro}>
 			<div className={styles.container}>
-				<div className={styles.welcome}>
+				<div className={styles.info}>
 					<ul className={styles.nav}>
 						<li className={styles.nav_item}>
 							<img width={50} height={50} src="./images/icons/turtle.svg" alt="Логотип Turtle" />
@@ -73,13 +88,18 @@ export const Intro = () => {
 							<Link className={styles.link} to="/login">Регистрация</Link>
 						</li>
 					</ul>
-					<div className={styles.text}>
-						<animated.h1 className={styles.title} style={animateTitle}>
-							Место, где вы можете создавать свой front-end
-						</animated.h1>
-						<animated.h2 className={styles.subtitle} style={animateSubtitle}>
-							Turtle - онлайн редактор кода для front-end разработчиков
-						</animated.h2>
+					<div className={styles.welcome}>
+						<div className={styles.text}>
+							<animated.h1 className={styles.title} style={animateTitle}>
+								Место, где вы можете создавать свой front-end
+							</animated.h1>
+							<animated.h2 className={styles.subtitle} style={animateSubtitle}>
+								Turtle - онлайн редактор кода для front-end разработчиков
+							</animated.h2>
+						</div>
+						<animated.div style={animateButton}>
+							<NavButton url="/login" text="Начать разработку" />
+						</animated.div>
 					</div>
 				</div>
 				<div className={styles.examples}>

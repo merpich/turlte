@@ -14,7 +14,7 @@
 	}
 }
 
-.welcome {
+.info {
 	display: grid;
 	justify-content: start;
 	@include media('max', 'width', 1259.98) {
@@ -22,8 +22,14 @@
 	}
 }
 
+.welcome {
+	display: grid;
+	gap: rem(40);
+	align-content: start;
+}
+
 .nav {
-	align-self: flex-start;
+	align-self: start;
 	display: flex;
 	align-items: center;
 	gap: rem(20);
@@ -42,7 +48,6 @@
 .text {
 	display: grid;
 	gap: rem(20);
-	align-content: flex-start;
 }
 
 .title {

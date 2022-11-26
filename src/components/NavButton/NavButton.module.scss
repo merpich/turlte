@@ -2,6 +2,7 @@
 @import '../../styles/libs/mixins';
 
 .button {
+	display: inline-block;
 	min-width: rem(210);
 	padding: rem(10) rem(15);
 	border-radius: rem(10);
