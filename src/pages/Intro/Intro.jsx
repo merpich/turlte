@@ -82,7 +82,7 @@ export const Intro = () => {
 							<img width={50} height={50} src="./images/icons/turtle.svg" alt="Логотип Turtle" />
 						</li>
 						<li className={styles.nav_item}>
-							<Link className={styles.link} to="/login">Вход</Link>
+							<Link className={styles.link} to="/signin">Вход</Link>
 						</li>
 						<li className={styles.nav_item}>
 							<Link className={styles.link} to="/register">Регистрация</Link>
@@ -100,7 +100,7 @@ export const Intro = () => {
 						<animated.div style={animateButton}>
 							<Button
 								text="Начать разработку"
-								url='/login'
+								url="/signin"
 							/>
 						</animated.div>
 					</div>

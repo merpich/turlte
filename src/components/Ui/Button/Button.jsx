@@ -1,19 +1,19 @@
 import { Link } from 'react-router-dom';
 import styles from './Button.module.scss';
 
-export const Button = ({ text, type = 'button', onClick = null, url = null }) => {
+export const Button = ({ text, type = 'button', url = null }) => {
 	return (
 		<>
 			{
-				onClick
+				url
 					? (
-						<button className={styles.button} type={type} onClick={onClick}>
-							{ text }
-						</button>
-					) : (
 						<Link className={styles.button} to={url}>
 							{ text }
 						</Link>
+					) : (
+						<button className={styles.button} type={type}>
+							{ text }
+						</button>
 					)
 			}
 		</>
