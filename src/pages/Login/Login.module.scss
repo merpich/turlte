@@ -15,9 +15,11 @@
 }
 
 .fieldset {
+	display: grid;
 	width: 100%;
 	max-width: rem(450);
 	padding: 0;
+	gap: rem(20);
 	border: 0;
 	&[data-direct=right] {
 		justify-self: start;
