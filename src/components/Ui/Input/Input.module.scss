@@ -15,10 +15,13 @@
 	padding: rem(10) rem(15);
 	border: 0;
 	border-radius: rem(10);
+	background: var(--bg-second);
+	border: rem(2) solid var(--bg-second);
+	outline: 0;
 	font-family: inherit;
 	font-size: rem(18);
-	color: var(--fc-button);
+	color: var(--fc-paragraph);
 	&:focus {
-		outline: rem(2) solid var(--accent);
+		border-color: var(--accent);
 	}
 }

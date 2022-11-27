@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import { useSpring, useTrail, animated, easings, useSpringRef, config } from 'react-spring';
-import { Example } from '../../components/Example/Example';
-import { NavButton } from "../../components/NavButton/NavButton";
+import { Link } from 'react-router-dom';
+import { useSpring, useTrail, animated, easings } from 'react-spring';
+import { Example } from '../../components/Introduction/Example/Example';
+import { Button } from '../../components/Ui/Button/Button';
 import styles from './Intro.module.scss';
 
 export const Intro = () => {
@@ -45,10 +45,10 @@ export const Intro = () => {
 
 	const animateButton = useSpring({
 		from: {
-			opacity: 0
+			opacity: 0,
 		},
 		to: {
-			opacity: 1
+			opacity: 1,
 		},
 		config: {
 			duration: 800,
@@ -85,7 +85,7 @@ export const Intro = () => {
 							<Link className={styles.link} to="/login">Вход</Link>
 						</li>
 						<li className={styles.nav_item}>
-							<Link className={styles.link} to="/login">Регистрация</Link>
+							<Link className={styles.link} to="/register">Регистрация</Link>
 						</li>
 					</ul>
 					<div className={styles.welcome}>
@@ -98,7 +98,10 @@ export const Intro = () => {
 							</animated.h2>
 						</div>
 						<animated.div style={animateButton}>
-							<NavButton url="/login" text="Начать разработку" />
+							<Button
+								text="Начать разработку"
+								url='/login'
+							/>
 						</animated.div>
 					</div>
 				</div>

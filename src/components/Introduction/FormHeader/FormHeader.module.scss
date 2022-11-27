@@ -1,0 +1,24 @@
+@import "/src/styles/libs/functions";
+@import "/src/styles/libs/mixins";
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: rem(20);
+	margin: 0 rem(-10) 0 0;
+}
+
+.title {
+	color: var(--fc-title);
+}
+
+.link {
+	color: inherit;
+	font-size: rem(18);
+	transition: color 0.2s ease-in-out 0s;
+	padding: rem(10);
+	&:hover {
+		color: var(--accent);
+	}
+}
