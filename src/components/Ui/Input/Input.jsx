@@ -8,6 +8,7 @@ export function Input({ type, name, caption = '', placeholder = '', required = f
 			<span className={styles.caption}>{caption}</span>
 			<input
 				className={styles.input}
+				autoComplete="off"
 				{...attrs}
 			/>
 		</label>
