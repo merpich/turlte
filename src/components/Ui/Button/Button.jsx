@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styles from './Button.module.scss';
 
-export const Button = ({ text, type = 'button', url = null }) => {
+export function Button({ text, type = 'button', url = null }) {
 	return (
 		<>
 			{

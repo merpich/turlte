@@ -1,5 +1,5 @@
-@import "/src/styles/libs/functions";
-@import "/src/styles/libs/mixins";
+@import '/src/styles/functions';
+@import '/src/styles/mixins';
 
 .label {
 	display: grid;
@@ -15,7 +15,7 @@
 	padding: rem(10) rem(15);
 	border: 0;
 	border-radius: rem(10);
-	background: var(--bg-second);
+	background-color: var(--bg-second);
 	border: rem(2) solid var(--bg-second);
 	outline: 0;
 	font-family: inherit;

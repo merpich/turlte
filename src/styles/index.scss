@@ -1,7 +1,7 @@
+@import './reset';
+@import './functions';
+@import './mixins';
 @import './variables';
-@import './libs/functions';
-@import './libs/reset';
-@import './libs/mixins';
 
 body {
 	background: var(--bg-primary);

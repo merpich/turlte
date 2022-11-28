@@ -1,9 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
-import { Intro } from './pages/Intro/Intro';
-import { Register } from './pages/Login/Register';
-import { SignIn } from './pages/Login/SignIn';
 import { NotFound } from './pages/NotFound/NotFound';
-import { Editor } from "./pages/Editor/Editor";
+import { Intro } from './pages/Intro/Intro';
+import { SignIn } from './pages/Login/SignIn';
+import { Register } from './pages/Login/Register';
+import { Editor } from './pages/Editor/Editor';
 
 export function App() {
 	return (

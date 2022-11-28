@@ -1,6 +1,6 @@
 import styles from './Example.module.scss';
 
-export const Example = ({ title, action, imageUrl, alt }) => {
+export function Example({ title, action, imageUrl, alt }) {
 	return (
 		<div className={styles.example}>
 			<div className={styles.text}>

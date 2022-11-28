@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { CssEditor } from '../Editor/CssEditor';
 import { HtmlEditor } from '../Editor/HtmlEditor';
+import { CssEditor } from '../Editor/CssEditor';
 import { JsEditor } from '../Editor/JsEditor';
 import styles from './CodeBar.module.scss';
 

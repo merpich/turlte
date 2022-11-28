@@ -4,7 +4,7 @@ import { Example } from '../../components/Introduction/Example/Example';
 import { Button } from '../../components/Ui/Button/Button';
 import styles from './Intro.module.scss';
 
-export const Intro = () => {
+export function Intro() {
 	const examples = [
 		{title: 'HTML', action: 'Размечай страницу', imageUrl: './images/examples/html.jpg', alt: 'Пример кода html'},
 		{title: 'CSS', action: 'Стилизуй элементы', imageUrl: './images/examples/css.jpg', alt: 'Пример кода css'},

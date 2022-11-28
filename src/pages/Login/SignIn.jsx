@@ -4,7 +4,7 @@ import { Input } from '../../components/Ui/Input/Input';
 import { Button } from '../../components/Ui/Button/Button';
 import styles from './Login.module.scss';
 
-export const SignIn = () => {
+export function SignIn() {
 	const inputs = {
 		email: {
 			caption: 'Электронная почта',
@@ -77,11 +77,11 @@ export const SignIn = () => {
 				linkCaption="Регистрация"
 				linkPath="/register"
 			/>
-			<form className={styles.form} method='post'>
-				<animated.fieldset className={styles.fieldset} data-direct='right' style={animateEmail}>
+			<form className={styles.form} method="post">
+				<animated.fieldset className={styles.fieldset} data-direct="right" style={animateEmail}>
 					<Input {...inputs.email} />
 				</animated.fieldset>
-				<animated.fieldset className={styles.fieldset} data-direct='left' style={animatePassword}>
+				<animated.fieldset className={styles.fieldset} data-direct="left" style={animatePassword}>
 					<Input {...inputs.password} />
 				</animated.fieldset>
 

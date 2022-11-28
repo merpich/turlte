@@ -1,10 +1,10 @@
 import { useContext } from 'react';
-import { EditorContext } from '../../../context/EditorContext';
 import AceEditor from 'react-ace';
 import 'ace-builds/src-noconflict/mode-javascript';
 import 'ace-builds/src-noconflict/theme-twilight';
 import 'ace-builds/src-noconflict/snippets/javascript';
 import 'ace-builds/src-min-noconflict/ext-language_tools';
+import { EditorContext } from '../../../context/EditorContext';
 
 export function JsEditor() {
 	const { js, setJs } = useContext(EditorContext);
