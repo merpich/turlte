@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { EditorContext } from '../../context/EditorContext';
+import { EditorContext } from '../../../context/EditorContext';
 import AceEditor from 'react-ace';
 import 'ace-builds/src-noconflict/mode-html';
 import 'ace-builds/src-noconflict/theme-twilight';

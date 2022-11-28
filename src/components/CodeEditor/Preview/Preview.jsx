@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { useContext } from 'react';
-import { EditorContext } from '../../context/EditorContext';
+import { EditorContext } from '../../../context/EditorContext';
 import styles from './Preview.module.scss';
 
 export function Preview() {
