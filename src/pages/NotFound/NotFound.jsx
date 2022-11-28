@@ -1,5 +1,5 @@
-import { NavButton } from '../components/NavButton/NavButton';
-import styles from '../styles/modules/NotFound.module.scss';
+import { Button } from '../../components/Ui/Button/Button';
+import styles from './NotFound.module.scss';
 
 export function NotFound() {
 	return (
@@ -9,7 +9,7 @@ export function NotFound() {
 					<h1 className={styles.title}>Ничего не найдено</h1>
 					<h2 className={styles.subtitle}>Похоже, данной страницы не существует...</h2>
 				</div>
-				<NavButton url="/" text="Вернуться на сайт" />
+				<Button url="/" text="Вернуться на сайт" />
 			</div>
 		</div>
 	);
