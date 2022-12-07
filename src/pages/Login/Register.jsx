@@ -6,6 +6,13 @@ import styles from './Login.module.scss';
 
 export function Register() {
 	const inputs = {
+		nickname: {
+			caption: 'Как вас называть?',
+			type: 'text',
+			name: 'nickname',
+			placeholder: 'User',
+			required: true
+		},
 		email: {
 			caption: 'Электронная почта',
 			type: 'email',
@@ -86,6 +93,7 @@ export function Register() {
 			/>
 			<form className={styles.form} method="post">
 				<animated.fieldset className={styles.fieldset} data-direct="right" style={animateEmail}>
+					<Input {...inputs.nickname} />
 					<Input {...inputs.email} />
 				</animated.fieldset>
 				<animated.fieldset className={styles.fieldset} data-direct="left" style={animatePassword}>
