@@ -5,6 +5,10 @@ import styles from './Preview.module.scss';
 export function Preview() {
 	const { html, css, js } = useContext(EditorContext);
 
+	function logoutUser() {
+
+	}
+
 	const document = useMemo(() => {
 		if (!html && !css && !js) return
 
@@ -31,7 +35,14 @@ export function Preview() {
 	return (
 		<div className={styles.wrapper}>
 			<header className={styles.header}>
-
+				<span className={styles.nickname}>User</span>
+				<button className={styles.save}>
+					<img className={styles.icon} src="./images/icons/save.svg" alt="Сохранить" />
+				</button>
+				<button className={styles.exit} onClick={logoutUser}>
+					<img className={styles.icon} src="./images/icons/logout.svg" alt="Выход из аккаунта" />
+					<span className={styles.logout}>Выйти</span>
+				</button>
 			</header>
 			<div className={styles.content}>
 				{document
