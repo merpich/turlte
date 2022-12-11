@@ -1,12 +1,19 @@
 import { useMemo, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AppContext } from '../../../context/AppContext';
 import { EditorContext } from '../../../context/EditorContext';
 import styles from './Preview.module.scss';
 
 export function Preview() {
 	const { html, css, js } = useContext(EditorContext);
+	const { setAuthorized, setToken } = useContext(AppContext);
+	const navigate = useNavigate();
 
 	function logoutUser() {
-
+		localStorage.removeItem('token');
+		setAuthorized(false);
+		setToken('');
+		return navigate('/');
 	}
 
 	const document = useMemo(() => {

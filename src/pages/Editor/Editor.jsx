@@ -3,10 +3,17 @@ import { AppContext } from '../../context/AppContext';
 import { EditorProvider } from '../../context/EditorContext';
 import { CodeBar } from '../../components/CodeEditor/CodeBar/CodeBar';
 import { Preview } from '../../components/CodeEditor/Preview/Preview';
+import { NotSign } from '../../components/NotSign/NotSign';
 import styles from './Editor.module.scss';
 
 export function Editor() {
-	const { authorized } = useContext(AppContext);
+	const { authorized, setAuthorized, setToken } = useContext(AppContext);
+
+	if (localStorage.getItem('token')) {
+		setAuthorized(true);
+		const token = JSON.parse(localStorage.getItem('token'));
+		setToken(token);
+	}
 
 	return (
 		<>
@@ -19,8 +26,7 @@ export function Editor() {
 						</div>
 					</EditorProvider>
 				) : (
-					<div>Запрещено</div>
-					// <NotSign />
+					<NotSign />
 				)}
 		</>
 	);

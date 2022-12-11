@@ -9,6 +9,9 @@
 .caption {
 	font-size: rem(18);
 	font-weight: 500;
+	&_wrong {
+		color: var(--wrong);
+	}
 }
 
 .input {
@@ -21,7 +24,10 @@
 	font-family: inherit;
 	font-size: rem(18);
 	color: var(--fc-paragraph);
-	&:focus {
+	&:not(.wrong):focus {
 		border-color: var(--accent);
+	}
+	&_wrong {
+		border-color: var(--wrong);
 	}
 }

@@ -1,38 +1,97 @@
+import { useState, useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useSpring, animated, easings } from 'react-spring';
+import { AppContext } from '../../context/AppContext';
+import { postData } from '../../api/api';
 import { FormHeader } from '../../components/Introduction/FormHeader/FormHeader';
 import { Input } from '../../components/Ui/Input/Input';
 import { Button } from '../../components/Ui/Button/Button';
 import styles from './Login.module.scss';
 
 export function Register() {
+	const [loaded, setLoaded] = useState(false);
+	const { authorized, setAuthorized, setToken } = useContext(AppContext);
+	const navigate = useNavigate();
+
+	const [freeNickname, setFreeNicknmae] = useState(true);
+	const [freeEmail, setFreeEmail] = useState(true);
+	const [matchedPasswords, setMatchedPasswords] = useState(true);
+
+	if (localStorage.getItem('token')) {
+		setAuthorized(true);
+		const token = JSON.parse(localStorage.getItem('token'));
+		setToken(token);
+	}
+
+	useEffect(() => {
+		if (authorized) {
+			return navigate('/editor');
+		}
+		setLoaded(true);
+	}, [authorized, loaded, navigate]);
+
+	async function registerUser(e) {
+		e.preventDefault();
+		const formData = new FormData(e.target);
+
+		if (formData.get('password') !== formData.get('password_confirm')) {
+			setMatchedPasswords(false);
+			return;
+		}
+
+		const data = {
+			nickname: formData.get('nickname'),
+			email: formData.get('email'),
+			password: formData.get('password')
+		}
+
+		const response = await postData('/register', data);
+
+		if (response.message === 'nickname') {
+			setMatchedPasswords(true);
+			setFreeNicknmae(false);
+		} else if (response.message === 'email') {
+			setFreeNicknmae(true);
+			setFreeEmail(false);
+		} else if(response.message === 'Success') {
+			setFreeEmail(true);
+			setAuthorized(true);
+			localStorage.setItem('token', JSON.stringify(response.token));
+		}
+	}
+
 	const inputs = {
 		nickname: {
-			caption: 'Как вас называть?',
+			caption: freeNickname ? 'Как вас называть?' : 'Никнейм уже занят',
 			type: 'text',
 			name: 'nickname',
 			placeholder: 'User',
-			required: true
+			required: true,
+			isWrong: freeNickname
 		},
 		email: {
-			caption: 'Электронная почта',
+			caption: freeEmail ? 'Электронная почта' : 'Электронная почта уже занята',
 			type: 'email',
 			name: 'email',
 			placeholder: 'user@mail.com',
-			required: true
+			required: true,
+			isWrong: freeEmail
 		},
 		password: {
 			caption: 'Пароль',
 			type: 'password',
 			name: 'password',
 			placeholder: 'password',
-			required: true
+			required: true,
+			isWrong: matchedPasswords
 		},
-		passwordReapet: {
-			caption: 'Повторите пароль',
+		passwordConfirm: {
+			caption: matchedPasswords ? 'Повторите пароль' : 'Пароли не совпадают',
 			type: 'password',
-			name: 'password',
+			name: 'password_confirm',
 			placeholder: 'password',
-			required: true
+			required: true,
+			isWrong: matchedPasswords
 		}
 	}
 
@@ -91,14 +150,14 @@ export function Register() {
 				linkCaption="Авторизация"
 				linkPath="/signin"
 			/>
-			<form className={styles.form} method="post">
+			<form className={styles.form} method="post" onSubmit={registerUser}>
 				<animated.fieldset className={styles.fieldset} data-direct="right" style={animateEmail}>
 					<Input {...inputs.nickname} />
 					<Input {...inputs.email} />
 				</animated.fieldset>
 				<animated.fieldset className={styles.fieldset} data-direct="left" style={animatePassword}>
 					<Input {...inputs.password} />
-					<Input {...inputs.passwordReapet} />
+					<Input {...inputs.passwordConfirm} />
 				</animated.fieldset>
 
 				<animated.div style={animateButton}>
