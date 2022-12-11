@@ -1,13 +1,26 @@
 import { useMemo, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { postData } from '../../../api/api';
 import { AppContext } from '../../../context/AppContext';
 import { EditorContext } from '../../../context/EditorContext';
 import styles from './Preview.module.scss';
 
 export function Preview() {
 	const { html, css, js } = useContext(EditorContext);
-	const { setAuthorized, setToken } = useContext(AppContext);
+	const { token, setToken, setAuthorized } = useContext(AppContext);
 	const navigate = useNavigate();
+
+	async function saveCode() {
+		const response = await postData('/code', {
+			action: 'post',
+			token: token,
+			html: html,
+			css: css,
+			js: js
+		});
+
+		console.log(response);
+	}
 
 	function logoutUser() {
 		localStorage.removeItem('token');
@@ -43,7 +56,7 @@ export function Preview() {
 		<div className={styles.wrapper}>
 			<header className={styles.header}>
 				<span className={styles.nickname}>User</span>
-				<button className={styles.save}>
+				<button className={styles.save} onClick={saveCode}>
 					<img className={styles.icon} src="./images/icons/save.svg" alt="Сохранить" />
 				</button>
 				<button className={styles.exit} onClick={logoutUser}>
