@@ -3,6 +3,10 @@
 @import './mixins';
 @import './variables';
 
+#root {
+	overflow: hidden;
+}
+
 body {
 	background: var(--bg-primary);
 	font-family: var(--font-paragraph);

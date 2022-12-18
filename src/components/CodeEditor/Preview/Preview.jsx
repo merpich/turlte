@@ -6,9 +6,22 @@ import { EditorContext } from '../../../context/EditorContext';
 import styles from './Preview.module.scss';
 
 export function Preview() {
-	const { html, css, js } = useContext(EditorContext);
+	const { html, css, js, setHtml, setCss, setJs } = useContext(EditorContext);
 	const { token, setToken, setAuthorized } = useContext(AppContext);
 	const navigate = useNavigate();
+
+	async function clearCode() {
+		setHtml('');
+		setCss('');
+		setJs('');
+
+		const response = await postData('/code', {
+			action: 'delete',
+			token: token
+		});
+
+		console.log(response.message);
+	}
 
 	async function saveCode() {
 		const response = await postData('/code', {
@@ -19,7 +32,7 @@ export function Preview() {
 			js: js
 		});
 
-		console.log(response);
+		console.log(response.message);
 	}
 
 	function logoutUser() {
@@ -28,6 +41,29 @@ export function Preview() {
 		setToken('');
 		return navigate('/');
 	}
+
+	// const document = () => {
+	// 	if (!html && !css && !js) return
+
+	// 	return (
+	// 		`<!DOCTYPE html>
+	// 		<html lang="en">
+	// 			<head>
+	// 				<meta charset="UTF-8">
+	// 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	// 				<style>
+	// 					${css}
+	// 				</style>
+	// 			</head>
+	// 			<body>
+	// 				${html}
+	// 				<script>
+	// 					${js}
+	// 				</script>
+	// 			</body>
+	// 		</html>`
+	// 	);
+	// }
 
 	const document = useMemo(() => {
 		if (!html && !css && !js) return
@@ -56,6 +92,9 @@ export function Preview() {
 		<div className={styles.wrapper}>
 			<header className={styles.header}>
 				<span className={styles.nickname}>User</span>
+				<button className={styles.save} onClick={clearCode}>
+					<img className={styles.icon} src="./images/icons/clear.svg" alt="Удалить весь код" />
+				</button>
 				<button className={styles.save} onClick={saveCode}>
 					<img className={styles.icon} src="./images/icons/save.svg" alt="Сохранить" />
 				</button>
