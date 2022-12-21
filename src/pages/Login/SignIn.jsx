@@ -134,7 +134,7 @@ export function SignIn() {
 							<animated.fieldset className={styles.fieldset} data-direct="right" style={animateEmail}>
 								<Input {...inputs.email} />
 							</animated.fieldset>
-							<animated.fieldset className={styles.fieldset} data-direct="left" style={animatePassword}>
+							<animated.fieldset className={styles.fieldset} data-direct="right" style={animatePassword}>
 								<Input {...inputs.password} />
 							</animated.fieldset>
 

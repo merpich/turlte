@@ -155,7 +155,7 @@ export function Register() {
 					<Input {...inputs.nickname} />
 					<Input {...inputs.email} />
 				</animated.fieldset>
-				<animated.fieldset className={styles.fieldset} data-direct="left" style={animatePassword}>
+				<animated.fieldset className={styles.fieldset} data-direct="right" style={animatePassword}>
 					<Input {...inputs.password} />
 					<Input {...inputs.passwordConfirm} />
 				</animated.fieldset>
